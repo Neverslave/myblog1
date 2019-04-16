@@ -10,7 +10,7 @@ public class User {
 
     private String password;
 
-    private String status;
+    private Byte status;
 
     @Column(name = "create_time")
     private String createTime;
@@ -60,14 +60,14 @@ public class User {
     /**
      * @return status
      */
-    public String getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
     /**
      * @param status
      */
-    public void setStatus(String status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 

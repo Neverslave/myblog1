@@ -13,6 +13,9 @@ public class MyblogConst {
 
     public static Map<String,String> InitConfig = new HashMap<>();
     public static String LOGIN_SESSION_KEY  = "login_user";
+    public static  final String User_In_Cookie ="Myblog_Cookie";
+    public static String AES_CODE = "0123456789ABCDEFG";
+
 
 
 }

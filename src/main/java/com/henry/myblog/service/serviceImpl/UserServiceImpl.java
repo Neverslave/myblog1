@@ -4,7 +4,9 @@ import com.henry.myblog.mapper.UserMapper;
 import com.henry.myblog.model.User;
 import com.henry.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
@@ -28,4 +30,10 @@ public class UserServiceImpl implements UserService {
     public User getUserByUserName(String username) {
         return userMapper.selectByUsername(username);
     }
+
+    //todo 返回数字表示状态 0--正常 1--冻结 -1登录失败
+    public boolean dologin(String username ,String password){
+        return getUserByUserName(username).getPassword().equals(password)&&getUserByUserName(username).getStatus()==0 ;
+    }
 }
+
