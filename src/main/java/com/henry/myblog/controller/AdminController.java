@@ -47,8 +47,44 @@ public class AdminController extends BaseController {
             return JsonResult.errorException("密码错误");
         }
         //todo log ip and time remember satus
+
         return JsonResult.ok("登录成功");
     }
+
+    @RequestMapping("/index")
+    public String getAdminIndex(){
+        return "/static/templates/admin/index";
+    }
+
+    @RequestMapping("/user")
+    public String getAdminUser(){
+
+        return "/static/templates/admin/admin-user";
+    }
+    @RequestMapping("/help")
+    public String getAdminHelp(){
+
+        return "/static/templates/admin/admin-help";
+    }
+
+    @RequestMapping("/gallery")
+    public String getAdminGallery(){
+
+        return "/static/templates/admin/admin-gallery";
+    }
+    @RequestMapping("/log")
+    public String getAdminLog(){
+
+        return "/static/templates/admin/admin-log";
+    }
+
+
+    @RequestMapping("/404")
+    public String getAdmin404(){
+
+        return "/static/templates/admin/admin-404";
+    }
+
 
 
 }

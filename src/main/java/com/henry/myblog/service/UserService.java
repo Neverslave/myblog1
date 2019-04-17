@@ -9,6 +9,8 @@ public interface UserService {
     public int deleteUser(Integer id);
     public int updateUser(User user);
     public User  getUserByUserName(String username);
+    public int lockUserByID(Integer id);
+    public int unLockUserByID(Integer id);
 
 
 }

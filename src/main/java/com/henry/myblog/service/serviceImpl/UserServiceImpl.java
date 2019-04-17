@@ -5,6 +5,7 @@ import com.henry.myblog.model.User;
 import com.henry.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,6 +31,20 @@ public class UserServiceImpl implements UserService {
     public User getUserByUserName(String username) {
         return userMapper.selectByUsername(username);
     }
+
+    @Override
+    // todo
+    public int lockUserByID(Integer id) {
+        return  0;
+    }
+
+    @Override
+    //todo
+    public int unLockUserByID(Integer id) {
+        return 0;
+    }
+
+
 
     //todo 返回数字表示状态 0--正常 1--冻结 -1登录失败
     public boolean dologin(String username ,String password){

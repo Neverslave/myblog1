@@ -8,11 +8,13 @@ import com.henry.myblog.model.User;
 import com.henry.myblog.service.serviceImpl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.nio.charset.Charset;
+
+
 
 public class LoginUtil {
     @Autowired
@@ -65,5 +67,12 @@ public class LoginUtil {
         }
         return  null;
     }
-
+    /***
+     * 登陆后设置Session
+     *
+     * */
+        public static void setSession(HttpServletRequest request,User user){
+           HttpSession session = request.getSession();
+           session.setAttribute(MyblogConst.LOGIN_SESSION_KEY,user);
+        }
 }
