@@ -3,7 +3,9 @@ package com.henry.myblog.controller;
 import cn.hutool.cache.Cache;
 import com.henry.myblog.model.User;
 import com.henry.myblog.service.UserService;
+import com.henry.myblog.service.serviceImpl.LogServiceImpl;
 import com.henry.myblog.service.serviceImpl.UserServiceImpl;
+import com.henry.myblog.util.IpUtil;
 import com.henry.myblog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminController extends BaseController {
     @Autowired
     UserServiceImpl userService;
+    @Autowired
+    LogServiceImpl logService;
     /**
     * 登录页
     * */
@@ -48,7 +52,8 @@ public class AdminController extends BaseController {
             return JsonResult.errorException("密码错误");
         }
         //todo log ip and time remember satus
-
+        String ip  =IpUtil.getRealIp(request);
+        logService.createLog(ip,user);
         return JsonResult.ok("登录成功");
     }
 

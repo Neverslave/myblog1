@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js fixed-layout">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>文章管理</title>
+    <meta name="description" content="这是文章管理页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="/static/myblog/amazeUI/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/myblog/amazeUI/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="/static/myblog/amazeUI/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/static/myblog/simeditor/simditor.css">
+    <script src="/static/myblog/js/JQuery-min.js"></script>
+    <script src="/static/myblog/simeditor/module.js"></script>
+    <script src="/static/myblog/simeditor/uploader.js"></script>
+    <script src="/static/myblog/simeditor/hotkeys.js"></script>
+    <script src="/static/myblog/simeditor/simditor.js"></script>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<div class="am-btn-group">
+    <button class="am-btn-default">修改</button>
+    <button class="am-btn-primary" id="publish" onclick="publish()">发布</button>
+</div>
+<div class="am-g am-g-fixed">
+    <label for="title" class="am-u-sm-4">标题</label> <input class="am-u-sm-8" id="title" name="title">
+</div>
+<div class="am-g am-g-fixed">
+    <label for="catalog" class="am-u-sm-4">类型</label>
+    <select class="am-u-sm-8" name="catalog" id="catalog">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    </select>
+</div>
+<div class="am-g am-g-fixed">
+    <label for="summary" class="">摘要</label>
+    <button class="am-btn-primary" onclick="getSummary()">自动提取摘要</button>
+</div>
+<div class="am-g am-g-fixed">
+    <textarea style="width: 1000px;" name="summary" id="summary"></textarea>
+</div>
+<hr>
+<div class="am-g am-g-fixed" style="width: 1200px">
+    <textarea name="content" id="content" class=""></textarea>
+</div>
+
+
+
+</body>
+<script src="/static/myblog/js/article-detail.js"></script>
+</html>

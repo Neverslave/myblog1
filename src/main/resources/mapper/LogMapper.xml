@@ -5,9 +5,9 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="login_time" jdbcType="INTEGER" property="loginTime" />
+    <result column="login_time" jdbcType="VARCHAR" property="loginTime" />
     <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
   </resultMap>
 </mapper>

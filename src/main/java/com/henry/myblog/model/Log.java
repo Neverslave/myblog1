@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 public class Log {
     @Id
-    private Integer id;
+    private String id;
 
     /**
      * 用户id
@@ -12,7 +12,7 @@ public class Log {
     private Integer uid;
 
     @Column(name = "login_time")
-    private Integer loginTime;
+    private String loginTime;
 
     @Column(name = "login_ip")
     private String loginIp;
@@ -20,14 +20,14 @@ public class Log {
     /**
      * @return id
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,14 +52,14 @@ public class Log {
     /**
      * @return login_time
      */
-    public Integer getLoginTime() {
+    public String getLoginTime() {
         return loginTime;
     }
 
     /**
      * @param loginTime
      */
-    public void setLoginTime(Integer loginTime) {
+    public void setLoginTime(String loginTime) {
         this.loginTime = loginTime;
     }
 
