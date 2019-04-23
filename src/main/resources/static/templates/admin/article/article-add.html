@@ -29,7 +29,9 @@
 <div class="am-btn-group">
     <button class="am-btn-default">修改</button>
     <button class="am-btn-primary" id="publish" onclick="publish()">发布</button>
+    <button class="am-btn-primary" id="draft" onclick="draft()">存为草稿</button>
 </div>
+<form class="am-form" id="info">
 <div class="am-g am-g-fixed">
     <label for="title" class="am-u-sm-4">标题</label> <input class="am-u-sm-8" id="title" name="title">
 </div>
@@ -41,6 +43,7 @@
     <option>3</option>
     </select>
 </div>
+</form>
 <div class="am-g am-g-fixed">
     <label for="summary" class="">摘要</label>
     <button class="am-btn-primary" onclick="getSummary()">自动提取摘要</button>
@@ -52,6 +55,7 @@
 <div class="am-g am-g-fixed" style="width: 1200px">
     <textarea name="content" id="content" class=""></textarea>
 </div>
+
 
 
 

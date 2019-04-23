@@ -27,7 +27,7 @@
         <javaClientGenerator targetPackage="com.henry.myblog.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-        <table tableName="log">
+        <table tableName="article">
 
         </table>
 

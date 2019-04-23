@@ -1,6 +1,7 @@
 package com.henry.myblog.controller;
 
 import cn.hutool.cache.Cache;
+import com.henry.myblog.model.Log;
 import com.henry.myblog.model.User;
 import com.henry.myblog.service.UserService;
 import com.henry.myblog.service.serviceImpl.LogServiceImpl;
@@ -53,7 +54,9 @@ public class AdminController extends BaseController {
         }
         //todo log ip and time remember satus
         String ip  =IpUtil.getRealIp(request);
-        logService.createLog(ip,user);
+        //写入log
+        Log log = logService.createLog(ip,user);
+        logService.insertLog(log);
         return JsonResult.ok("登录成功");
     }
 

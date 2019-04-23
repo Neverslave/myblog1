@@ -21,7 +21,14 @@ function publish() {
     //todo  校验
     $.post({
         url: 'publish',
-        data:{"content": editor.getValue()},
+        data:JSON.stringify({
+            "title":$("#title").val(),
+            "catalog":$("#catalog").val(),
+            "summary":$("#summary").val(),
+            "content": editor.getValue()
+        }),
+        dataType:'json',
+        contentType:'application/json',
         success: function (result) {
             if (result.status===200) {
                 alert("发布成功")
@@ -32,10 +39,16 @@ function publish() {
     });
     return false;
 }
-
+//自动生成摘要
 function getSummary() {
     
 }
+
+//存为草稿
+function draft() {
+    
+}
+
 
 
 

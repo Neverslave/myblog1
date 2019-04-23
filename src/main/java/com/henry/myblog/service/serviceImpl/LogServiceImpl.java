@@ -6,7 +6,6 @@ import com.henry.myblog.mapper.LogMapper;
 import com.henry.myblog.model.Log;
 import com.henry.myblog.model.User;
 import com.henry.myblog.service.LogService;
-import com.henry.myblog.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
