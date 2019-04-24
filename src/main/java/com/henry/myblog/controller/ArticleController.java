@@ -48,10 +48,13 @@ public class ArticleController {
         articleService.AddArticle(article);
         return JsonResult.ok(article);
     }
+
+
     @RequestMapping("/getArticleList")
     public ModelAndView getArticleList(){
         ModelAndView mv = new ModelAndView("/static/myblog/templates/article/article-list");
         mv.addObject("articleList","string111");
+        return mv;
 
 
     }
