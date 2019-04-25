@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+
 
 
 /**
@@ -49,13 +49,18 @@ public class ArticleController {
         return JsonResult.ok(article);
     }
 
-
+/**
+ * 获取文章列表
+ * */
     @RequestMapping("/getArticleList")
     public ModelAndView getArticleList(){
-        ModelAndView mv = new ModelAndView("/static/myblog/templates/article/article-list");
+    /**
+     * 使用 ModelAndView只能使用jsp thymeleaf 等后端渲染的模板语言
+     *  ModelAndView mv = new ModelAndView();
         mv.addObject("articleList","string111");
+        mv.setViewName("/static/templates/admin/article/admin-list");//设置页面地址
         return mv;
-
-
+     */
+        return null;
     }
 }
