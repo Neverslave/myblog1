@@ -25,34 +25,37 @@
 <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
     以获得更好的体验！</p>
 <![endif]-->
-<div style="width: 200px;"></div>
-<div class="am-btn-group ">
+<div style="height:  20px;"></div>
+<div class="am-btn-group "style="left: 20px;">
     <button class="am-btn-default">修改</button>
     <button class="am-btn-primary" id="publish" onclick="publish()">发布</button>
     <button class="am-btn-primary" id="draft" onclick="draft()">存为草稿</button>
 </div>
-<form class="am-form" id="info">
-<div class="am-g am-g-fixed">
-    <label for="title" class="am-u-sm-4">标题</label> <input class="am-u-sm-8" id="title" name="title">
+
+<div class="am-g am-g-fixed ">
+    <label for="title" class="am-u-sm-2">标题</label>
+    <input class="am-u-sm-4 am-u-end" id="title" name="title">
 </div>
-<div class="am-g am-g-fixed">
-    <label for="catalog" class="am-u-sm-4">类型</label>
-    <select class="am-u-sm-8" name="catalog" id="catalog">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    </select>
-</div>
-</form>
-<div class="am-g am-g-fixed " >
-    <label for="summary" class="">摘要</label>
+    <div class="am-g  am-g-fixed">
+        <label for="catalog" class="am-u-sm-2">类型</label>
+        <select id="catalog" style="width: 300px" >
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3">选项三........</option>
+        </select>
+        <span class="am-form-caret"></span>
+    </div>
+
+
+<div class="am-g am-g-fixed" >
+    <label for="summary" class="am-u-sm-2">摘要</label>
     <button class="am-btn-primary" onclick="getSummary()">自动提取摘要</button>
 </div>
 <div class="am-g am-g-fixed">
-    <textarea style="width: 1000px;" name="summary" id="summary"></textarea>
+    <textarea name="summary" style="width: 1000px" id="summary"></textarea>
 </div>
 <hr>
-<div class="am-g am-g-fixed" style="width: 1200px">
+<div class="am-g am-g-fixed">
     <textarea name="content" id="content" class=""></textarea>
 </div>
 

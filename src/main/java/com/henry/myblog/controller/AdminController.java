@@ -1,26 +1,26 @@
 package com.henry.myblog.controller;
 
-import cn.hutool.cache.Cache;
 import com.henry.myblog.model.Log;
 import com.henry.myblog.model.User;
-import com.henry.myblog.service.UserService;
 import com.henry.myblog.service.serviceImpl.LogServiceImpl;
 import com.henry.myblog.service.serviceImpl.UserServiceImpl;
 import com.henry.myblog.util.IpUtil;
 import com.henry.myblog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  * 后台登录
- * @author zhu
  *
- * */
+ * @author zhu
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends BaseController {
@@ -28,73 +28,74 @@ public class AdminController extends BaseController {
     UserServiceImpl userService;
     @Autowired
     LogServiceImpl logService;
+
     /**
-    * 登录页
-    * */
+     * 登录页
+     */
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "/static/templates/admin/login";
     }
 
 
     /**
      * 登录校验
-     * */
+     */
     @PostMapping(value = "/doLogin")
     @ResponseBody
     public JsonResult doLogin(@RequestParam String username,
                               @RequestParam String password,
-                              HttpServletRequest request, HttpServletResponse response){
-        User user =userService.getUserByUserName(username);
-        if(user == null){
+                              HttpServletRequest request, HttpServletResponse response) {
+        User user = userService.getUserByUserName(username);
+        if (user == null) {
             return JsonResult.errorException("登录失败");
         }
-        if(!userService.dologin(username,password)){
+        if (!userService.dologin(username, password)) {
             return JsonResult.errorException("密码错误");
         }
         //todo log ip and time remember satus
-        String ip  =IpUtil.getRealIp(request);
+        String ip = IpUtil.getRealIp(request);
         //写入log
-        Log log = logService.createLog(ip,user);
+        Log log = logService.createLog(ip, user);
         logService.insertLog(log);
         return JsonResult.ok("登录成功");
     }
 
     @RequestMapping("/index")
-    public String getAdminIndex(){
+    public String getAdminIndex() {
         return "/static/templates/admin/index";
     }
 
     @RequestMapping("/user")
-    public String getAdminUser(){
+    public String getAdminUser() {
 
         return "/static/templates/admin/admin-user";
     }
+
     @RequestMapping("/help")
-    public String getAdminHelp(){
+    public String getAdminHelp() {
 
         return "/static/templates/admin/admin-help";
     }
 
     @RequestMapping("/gallery")
-    public String getAdminGallery(){
+    public String getAdminGallery() {
 
         return "/static/templates/admin/admin-gallery";
     }
+
     @RequestMapping("/log")
-    public String getAdminLog(){
+    public String getAdminLog() {
 
         return "/static/templates/admin/admin-log";
     }
 
 
     @RequestMapping("/404")
-    public String getAdmin404(){
+    public String getAdmin404() {
 
         return "/static/templates/admin/admin-404";
     }
-
-
 
 
 }
