@@ -41,7 +41,7 @@ function publish() {
 }
 //自动生成摘要
 function getSummary() {
-    
+    editor.getValue();
 }
 
 //存为草稿

@@ -2,6 +2,7 @@ package com.henry.myblog.controller;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
+import com.github.pagehelper.PageHelper;
 import com.henry.myblog.model.Article;
 import com.henry.myblog.service.serviceImpl.ArticleServiceImpl;
 import com.henry.myblog.util.JsonResult;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-
+import java.util.List;
 
 
 /**
@@ -53,7 +54,8 @@ public class ArticleController {
  * 获取文章列表
  * */
     @RequestMapping("/getArticleList")
-    public ModelAndView getArticleList(){
+    @ResponseBody
+    public JsonResult getArticleList(Integer page){
     /**
      * 使用 ModelAndView只能使用jsp thymeleaf 等后端渲染的模板语言
      *  ModelAndView mv = new ModelAndView();
@@ -61,6 +63,26 @@ public class ArticleController {
         mv.setViewName("/static/templates/admin/article/admin-list");//设置页面地址
         return mv;
      */
-        return null;
+    if(page ==null){
+        page =1;
     }
+    List<Article> list = articleService.queryUserListPaged(page,20);
+        return JsonResult.ok(list);
+    }
+
+    /**
+     * 删除文章
+     * */
+    @RequestMapping("/deleteArticle")
+    @ResponseBody
+    public JsonResult deleteArticle(Article article){
+       if(articleService.deleteArticle(article) ==0){
+           return JsonResult.ok();
+       }
+      return  JsonResult.errorMsg("删除失败");
+
+    }
+    
+
+
 }

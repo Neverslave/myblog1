@@ -9,5 +9,6 @@ public interface ArticleService {
     int updateArticle(Article article);
     int deleteArticle(Article article);
     Article queryArticleById(String uuid);
-    List<Article> queryArticleListByStatus(int status);
+    public List<Article> queryUserListPaged( Integer page, Integer pageSize);
+
 }
