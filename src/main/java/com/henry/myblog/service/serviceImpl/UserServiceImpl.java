@@ -35,7 +35,9 @@ public class UserServiceImpl implements UserService {
     @Override
     // todo
     public int lockUserByID(Integer id) {
-        return  0;
+        User user = getUser(id);
+        //
+        return 0;
     }
 
     @Override
@@ -45,6 +47,14 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    /**
+     * 更换密码
+    * */
+    @Override
+    public int changePassword(User user, String password) {
+        user.setPassword(password);
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
 
     //todo 返回数字表示状态 0--正常 1--冻结 -1登录失败
     public boolean dologin(String username ,String password){

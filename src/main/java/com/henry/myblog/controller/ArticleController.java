@@ -80,7 +80,6 @@ public class ArticleController {
            return JsonResult.ok();
        }
       return  JsonResult.errorMsg("删除失败");
-
     }
     
 
