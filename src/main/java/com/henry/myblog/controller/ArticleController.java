@@ -75,7 +75,7 @@ public class ArticleController {
      * */
     @RequestMapping("/deleteArticle")
     @ResponseBody
-    public JsonResult deleteArticle(Article article){
+    public JsonResult deleteArticle(@RequestBody  Article article){
        if(articleService.deleteArticle(article) ==0){
            return JsonResult.ok();
        }

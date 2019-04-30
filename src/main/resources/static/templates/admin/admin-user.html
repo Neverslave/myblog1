@@ -14,6 +14,7 @@
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
   <link rel="stylesheet" href="/static/myblog/amazeUI/assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="/static/myblog/amazeUI/assets/css/admin.css">
+
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -212,5 +213,23 @@
 <script src="/static/myblog/amazeUI/assets/js/amazeui.min.js"></script>
 
 <script src="/static/myblog/amazeUI/assets/js/app.js"></script>
+<script src="/static/myblog/js/jquery.serializejson.min.js"></script>
+<script src="/static/myblog/js/admin-user.js"></script>
+<script>
+  window.onload=function (ev) {
+     $.get({
+         url: 'user/userInfo',
+         data:{id:1},
+         success:function (result) {
+            console.log(result.data)
+
+         }
+
+
+     })
+  };
+
+</script>
 </body>
 </html>
+

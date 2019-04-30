@@ -1,27 +1,29 @@
 package com.henry.myblog.controller;
 
 import com.henry.myblog.model.User;
+import com.henry.myblog.model.UserInfo;
+import com.henry.myblog.service.serviceImpl.UserInfoServiceImpl;
 import com.henry.myblog.service.serviceImpl.UserServiceImpl;
 import com.henry.myblog.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin/user")
 public class UserController {
     @Autowired
     UserServiceImpl userService;
+    @Autowired
+    UserInfoServiceImpl userInfoService;
         /**
-         *人员信息
+         *人员信息 userInfo
         **/
     @RequestMapping("/userInfo")
     @ResponseBody
     public JsonResult userInfo(Integer id){
-     User user= userService.getUser(id);
-     return JsonResult.ok(user);
+     UserInfo userInfo= userInfoService.getUserInfo(id);
+     return JsonResult.ok(userInfo);
     }
 
     /**
@@ -41,10 +43,13 @@ public class UserController {
     /***
      * 更新人员信息
      * */
-    @PostMapping("/updateUser")
+    @PostMapping("/updateUserInfo")
     @ResponseBody
-    public JsonResult updateUser(User user){
-        userService.updateUser(user);
+    public JsonResult updateUserInfo(@RequestBody UserInfo userInfo){
+        //todo 需要先在userinfo表写入 否则update无效
+        //前台要JSON.Stringify(Json) 后台若使用@RequestBody
+        userInfo.setUid(1);
+        userInfoService.updateUserInfo(userInfo);
         return JsonResult.ok("更新成功");
     }
 
