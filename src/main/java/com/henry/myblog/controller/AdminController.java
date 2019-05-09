@@ -72,6 +72,16 @@ public class AdminController extends BaseController {
         return "/static/templates/admin/admin-user";
     }
 
+    @RequestMapping("/form")
+    public String getAdminForm() {
+
+        return "/static/templates/admin/admin-form";
+    }
+    @RequestMapping("/table")
+    public String getAdminTable() {
+
+        return "/static/templates/admin/admin-table";
+    }
     @RequestMapping("/help")
     public String getAdminHelp() {
 
